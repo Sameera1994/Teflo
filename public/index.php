@@ -1,6 +1,10 @@
 <?php
 
-<h3> Welcome Page </h3>
-<p> You can custermize this page </p>
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Teflo\Core\App;
+
+$app = new App();
+$app->run();
 
 ?>
