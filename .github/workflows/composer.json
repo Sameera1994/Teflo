@@ -1,0 +1,16 @@
+{
+  "name": "Sameera94/teflo",
+  "description": "A lightweight PHP framework.",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Teflo\\Core\\": "core/",
+      "App\\": "app/"
+    }
+  },
+  "require": {
+    "php": ">=8.0"
+  }
+}
+
