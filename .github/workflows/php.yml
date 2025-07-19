@@ -7,14 +7,14 @@ on:
     branches: [ "main" ]
 
 jobs:
-  php-test:
+  php-check:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up PHP
+    - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
         php-version: '8.1'
