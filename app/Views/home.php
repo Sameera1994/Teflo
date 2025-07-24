@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Teflo Framework</title>
+  <title>Teflo</title>
   <style>
     :root {
       --bg-color: #f0f4f8;
@@ -109,10 +109,6 @@
 php -S localhost:8000 -t public</code></pre>
 
       <p>Then visit <strong>http://localhost:8000</strong> in your browser.</p>
-
-      <p>Edit your routes in <code>routes/web.php</code></p>
-      <p>Edit views in <code>app/Views/</code></p>
-      <p>Add controllers in <code>app/Controllers/</code></p>
     </div>
   </div>
 
