@@ -28,6 +28,7 @@ abstract class Model {
 
         return $data ? new static($data) : null;
     }
+
     public function save() {
         $db = Connection::getInstance();
         $table = static::$table;
@@ -46,6 +47,20 @@ abstract class Model {
             $stmt->execute(array_values($this->attributes));
             $this->attributes['id'] = $db->lastInsertId();
         }
+    }
+
+    public function delete() {
+        if (!isset($this->attributes['id'])) return;
+        $db = Connection::getInstance();
+        $stmt = $db->prepare("DELETE FROM " . static::$table . " WHERE id = ?");
+        $stmt->execute([$this->attributes['id']]);
+    }
+
+    public static function all(): array {
+        $db = Connection::getInstance();
+        $table = static::$table;
+        $stmt = $db->query("SELECT * FROM $table");
+        return array_map(fn($row) => new static($row), $stmt->fetchAll(PDO::FETCH_ASSOC));
     }
 }
 
