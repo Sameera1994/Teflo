@@ -28,6 +28,25 @@ abstract class Model {
 
         return $data ? new static($data) : null;
     }
+    public function save() {
+        $db = Connection::getInstance();
+        $table = static::$table;
+        $keys = array_keys($this->attributes);
+        $columns = implode(", ", $keys);
+        $placeholders = implode(", ", array_fill(0, count($keys), "?"));
+
+        if (isset($this->attributes['id'])) {
+            // Update
+            $updates = implode(", ", array_map(fn($k) => "$k = ?", $keys));
+            $stmt = $db->prepare("UPDATE $table SET $updates WHERE id = ?");
+            $stmt->execute([...array_values($this->attributes), $this->attributes['id']]);
+        } else {
+            // Insert
+            $stmt = $db->prepare("INSERT INTO $table ($columns) VALUES ($placeholders)");
+            $stmt->execute(array_values($this->attributes));
+            $this->attributes['id'] = $db->lastInsertId();
+        }
+    }
 }
 
 ?>
