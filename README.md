@@ -1,3 +1,8 @@
+![GitHub forks](https://img.shields.io/github/forks/sameera1994/teflo?style=social)
+![GitHub repo size](https://img.shields.io/github/repo-size/sameera1994/teflo)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/sameera1994/teflo)
+![GitHub issues](https://img.shields.io/github/issues/sameera1994/teflo)
+
 # Teflo PHP Framework
 
 Teflo is a lightweight PHP micro-framework designed for simplicity, speed, and learning.
